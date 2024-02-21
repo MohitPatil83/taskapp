@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <h2 align="center">register User</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>
+                Enter Username:
+            </td>
+            <td><input type="email" name="uname" id="" placeholder="Enter valid Gmail Address"></td>
+        </tr>
+        <tr>
+            <td>Enter Password:</td>
+            <td><input type="password" id="" name="upass" ></td>
+
+        </tr>
+        <tr>
+            <td>Confirm password</td>
+            <td><input type="password" name="ucpass" id=""></td>
+
+        </tr>
+        <tr>
+            <td>Enter Email:</td>
+            <td><input type="email" id="" name="uemail" ></td>
+        </tr>
+        
+        <tr > 
+            <td align="center"><br><input type="submit" value="register"></td>
+            <td><a href="/authapp/login">Already User?Login</a></td>
+        </tr>
+        {% if errmsg %}
+        <tr>
+            <td style="color:red">{{errmsg}}</td>
+
+        </tr>
+        {% endif %}
+
+        {% if success %}
+        <tr>
+            <td style="color:green">{{success}}</td>
+            <td><a href="/authapp/login">Login</a></td>
+        </tr>
+        {% endif %}
+    </table>
+    </form>
+</body>
+</html>

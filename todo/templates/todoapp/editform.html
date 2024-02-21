@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo | Edit task</title>
+</head>
+<body>
+    <h1 align="center"> update Task Details....</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table align="center">
+            <tr>
+                <td><label id="title" for="input1">Title:</label></td>
+                  <td> <input type="text" name="title" id="input1" value="{{data.title}}" required></td>
+
+                
+            </tr>
+            <tr>
+                <td><label for="input2">Enter Task Details:</label></td>
+                 <td>  <textarea name="det" id="input2" cols="30" rows="10" required>{{data.detail}}</textarea></td>
+                
+            </tr>
+
+            <tr>
+                <td><label for="input3">Due Date:</label></td>
+                 <td>   <input type="date" name="duedt" id="input3" value="{{data.due_dt | date:'Y-m-d'}}" required></td>
+                
+            </tr>
+            <tr>
+                <td><br>
+                    <input type="submit" name="subbtn" value="update">
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

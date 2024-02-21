@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo | Login</title>
+</head>
+<body>
+    <h2 align="center">User Login</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+   
+    <table align="center">
+        <tr><td><label for="">Username:</label></td>
+        <td><input type="email" name="uname" id="" placeholder="Enter Username"></td>
+
+        </tr>
+        <tr>
+            <td><label for="">Password:</label></td>
+            <td><input type="password" id="" name="upass"></td>
+
+        </tr>
+        <tr>
+            <td><input type="submit" value="Login"></td>
+            <td><a href="/authapp/register">New User? Register</a></td>
+        </tr>
+        {% if errmsg %}
+        <tr>
+            <td style="color:red">{{errmsg}}</td>
+
+        </tr>
+        {% endif %}
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Dashboard</title>
+    <style>
+        h1{
+            color:red;
+            
+        }
+        
+
+    </style>
+</head>
+<body>
+    <h1>Todo Dashboard</h1>
+    <p>
+    <button><a href="/add_task" target="_blank">Add Task</a></button>&nbsp;&nbsp;
+    <button><a href="/authapp/logout" target="_blank">Logout</a></button>
+
+    </p>
+
+    {% comment %}
+    {{a}} <br>
+    hi,{{user}} <br>
+    {% if a  > b %}
+    <p>In If block</p>
+    {{a}} is grater.
+
+    {% else %}
+    <p>In else block</p>
+    {{b}} is grater.
+
+    {% endif %}
+
+    <hr>
+
+    {% for x in l %}
+        {{x}}<br>
+    {% endfor %}
+
+  
+    <!---{{data}}--->
+    {% for x in data %}
+        {{x}} <br>
+        Id:{{x.id}} <br>
+        title:{{x.title}} <br>
+        details:{{x.detail}} <br>
+        due data:{{x.due_dt}} <br>
+        <br>
+    {% endfor %}
+    {% endcomment %}
+    <table border="1" align="center">
+            <tr>
+                    <th>Sr.no</th>
+                    <th>Task Title</th>
+                    <th>Task Details</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+            </tr>
+             {% for x in data %}
+                <tr>
+                    <td>{{x.id}}</td>
+                    <td>{{x.title}}</td>
+                    <td>{{x.detail}}</td>
+                    <td>{{x.due_dt}}</td>
+                    {% if x.is_completed == 0 %}
+                        <td style="color:rgb(158, 69, 81)">Pending</td>
+                        {% else %}
+                        <td style="color:green">Completed</td>
+                        {% endif %}
+                    <td><a href="/completed/{{x.id}}"><button>Mark as Completed</button></a></td>
+                    <td><a href="/edit/{{x.id}}"><button>Edit</button></a></td>
+                    <td><a href="/delete/{{x.id}}"><button>DELETE</button></a></td>
+                </tr>
+                    {% endfor %}
+    </table>
+</body>
+</html>
