@@ -4,7 +4,7 @@ from todoapp import views
 urlpatterns = [
     
    
-    path('home/',views.home),
+    path('',views.home),
     path('contact/',views.contact),
     path('about/',views.about),
     path('add_task/',views.add_task),
